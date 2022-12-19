@@ -1,13 +1,33 @@
 import React from "react";
+import { useSelector } from 'react-redux'
 import Warning from "../warning/Warning";
 import "./update.css";
+import { update } from '../../redux/userSlice'
 import { useState } from "react";
+// use a hook to dispatch action
+import { useDispatch } from "react-redux";  
 
 export default function Update() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const user = useSelector(state => state.user);
+  // dispatch update action using useDispatch hook: 
+  const dispatch = useDispatch();
   
-  console.log(name, email)
+  // Create handleUpdate function. Now all name will be updated everywhere
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    // dispatch 'update' action
+    dispatch(update({name, email})) // pass in payload -name, email 
+  }
+
+
+  // OR:
+  // user { name: name, email: email,}
+  // dispatch(update(user))
+
+
+  // console.log(name, email)
 
   return (
     <div className="update">
@@ -20,11 +40,6 @@ export default function Update() {
             <div className="formItem">
               <label>Profile Picture</label>
               <div className="profilePic">
-                <img
-                  className="avatar"
-                  src="https://images.pexels.com/photos/3024627/pexels-photo-3024627.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                  alt=""
-                />
                 <span className="change">Change</span>
               </div>
             </div>
@@ -33,7 +48,7 @@ export default function Update() {
               <input
                 className="formInput"
                 type="text"
-                placeholder="Carmen"
+                placeholder={user.name}
                 // update setName name state whenever name is changed
                 onChange={(e) => setName(e.target.value)}
               />
@@ -43,7 +58,7 @@ export default function Update() {
               <input
                 className="formInput"
                 type="text"
-                placeholder="carmen@gmail.com"
+                placeholder={user.email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -54,7 +69,7 @@ export default function Update() {
             
             
             <button
-              className="updateButton" 
+              className="updateButton" onClick={handleUpdate}
               // when this update button is clicked it, the 'update' action is dispatched in userSlice.js
             >
               Update

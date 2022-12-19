@@ -5,7 +5,7 @@ export const userSlice = createSlice({
   // Initial state can be empty
   initialState: {
     name: 'Lucien',
-    email: 'carmen@gmail.com'
+    email: 'lucien@gmail.com'
   },
 
   // When button is clicked, the new name and email will be sent to the reducers.
