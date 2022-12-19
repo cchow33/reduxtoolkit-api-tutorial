@@ -6,6 +6,8 @@ import { useState } from "react";
 export default function Update() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  
+  console.log(name, email)
 
   return (
     <div className="update">

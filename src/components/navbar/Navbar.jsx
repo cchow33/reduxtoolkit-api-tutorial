@@ -1,4 +1,4 @@
-import { ArrowDropDown } from "@material-ui/icons";
+// import { ArrowDropDown } from "@material-ui/icons";
 import React from "react";
 import "./navbar.css";
 
@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbarWrapper">
         <div className="navbarLeft">
-          <span className="logo">Lama App</span>
+          <span className="logo">Redux practice</span>
           <span className="navbarLink">Home</span>
           <span className="navbarLink">About</span>
           <span className="navbarLink">Contact</span>
@@ -22,13 +22,8 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbarRight">
-          <img
-            className="avatar"
-            src="https://images.pexels.com/photos/3024627/pexels-photo-3024627.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-          />
-          <span className="navbarName">John</span>
-          <ArrowDropDown />
+          <span className="navbarName">Carmen</span>
+          {/* <ArrowDropDown /> */}
         </div>
       </div>
     </div>

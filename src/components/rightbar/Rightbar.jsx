@@ -1,4 +1,4 @@
-import { ArrowDropDown } from "@material-ui/icons";
+// import { ArrowDropDown } from "@material-ui/icons";
 import React from "react";
 import Recommendation from "../recommendation/Recommendation";
 import "./rightbar.css";
@@ -12,7 +12,7 @@ export default function Rightbar() {
         <Recommendation type="editor" />
         <button className="rightButton">
           See More
-          <ArrowDropDown />
+          {/* <ArrowDropDown /> */}
         </button>
       </div>
     </div>
