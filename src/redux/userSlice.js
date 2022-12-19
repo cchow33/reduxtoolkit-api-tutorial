@@ -8,7 +8,7 @@ export const userSlice = createSlice({
       email: 'lucien@gmail.com',  
     },
     // When we start fetching or posting pending will change to true
-    pending: false,
+    pending: null,
     error: false,
   },
   reducers: {

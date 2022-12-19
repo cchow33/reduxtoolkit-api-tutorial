@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from 'react-redux'
 import Warning from "../warning/Warning";
 import "./update.css";
-import { update, remove, addHello } from '../../redux/userSlice'
+import { updateUser} from '../../redux/apiCalls'
 import { useState } from "react";
 // use a hook to dispatch action
 import { useDispatch } from "react-redux";  
@@ -10,24 +10,18 @@ import { useDispatch } from "react-redux";
 export default function Update() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const user = useSelector(state => state.user);
+  const { userInfo, pending, error } = useSelector(state => state.user.userInfo);
   // dispatch update action using useDispatch hook: 
   const dispatch = useDispatch();
-  // console.log(name, email)
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    // dispatch 'update' action
-    dispatch(addHello({name, email})) // pass in payload -name, email 
+    // We won't be dispatching anything here because we will be handling it in our apiCalls:
+    updateUser({name, email}, dispatch) // pass in payload -name, email 
   };
-
-  // OR:
-  // user { name: name, email: email,}
-  // dispatch(update(user))
 
   const handleDelete = (e) => {
     e.preventDefault();
-    dispatch(remove()) //no payload to pass in
   };
 
   return (
@@ -49,7 +43,7 @@ export default function Update() {
               <input
                 className="formInput"
                 type="text"
-                placeholder={user.name}
+                placeholder={userInfo.name}
                 // update setName name state whenever name is changed
                 onChange={(e) => setName(e.target.value)}
               />
@@ -59,7 +53,7 @@ export default function Update() {
               <input
                 className="formInput"
                 type="text"
-                placeholder={user.email}
+                placeholder={userInfo.email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -68,13 +62,16 @@ export default function Update() {
               <input className="formInput" type="password" />
             </div>
             
-            
-            <button
+            <button disabled={pending}
               className="updateButton" onClick={handleUpdate}
               // when this update button is clicked it, the 'update' action is dispatched in userSlice.js
             >
               Update
             </button>
+
+  {/* Messages will appear after 2 seconds */}
+            { error && <span className="error">Something went wrong!</span>}
+            { pending === false && <span className="success">Account has been updated</span>} 
           </form>
         </div>
       </div>
