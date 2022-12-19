@@ -7,6 +7,9 @@ export const userSlice = createSlice({
     name: 'Carmen',
     email: 'carmen@gmail.com'
   },
+
+  // When button is clicked, the new name and email will be sent to the reducers 
+
   reducers: {
     update: (state, action) => {
 

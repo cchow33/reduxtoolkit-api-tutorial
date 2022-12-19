@@ -7,7 +7,7 @@ export default function MenuLink({ icon, text }) {
       {icon}
       <span className="menuLinkText">{text}</span>
       <span className="menuLinkTextName">
-        {text === "Logout" && "( John )"}
+        {text === "Logout" && "(Carmen )"}
       </span>
     </div>
   );
