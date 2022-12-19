@@ -51,8 +51,11 @@ export default function Update() {
               <label>Password</label>
               <input className="formInput" type="password" />
             </div>
+            
+            
             <button
-              className="updateButton"
+              className="updateButton" 
+              // when this update button is clicked it, the 'update' action is dispatched in userSlice.js
             >
               Update
             </button>
