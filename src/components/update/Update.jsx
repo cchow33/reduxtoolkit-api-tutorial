@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from 'react-redux'
 import Warning from "../warning/Warning";
 import "./update.css";
-import { update, remove } from '../../redux/userSlice'
+import { update, remove, addHello } from '../../redux/userSlice'
 import { useState } from "react";
 // use a hook to dispatch action
 import { useDispatch } from "react-redux";  
@@ -18,7 +18,7 @@ export default function Update() {
   const handleUpdate = (e) => {
     e.preventDefault();
     // dispatch 'update' action
-    dispatch(update({name, email})) // pass in payload -name, email 
+    dispatch(addHello({name, email})) // pass in payload -name, email 
   };
 
   // OR:

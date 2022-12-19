@@ -16,11 +16,14 @@ export const userSlice = createSlice({
       state.email = action.payload.email;
     },
     remove: (state) => (state = {}), // no users
+    addHello: (state, action) => {
+      state.name = "Hello " + action.payload.name;
+    } 
   },
 });
 
 // export 'update' action to use 'Update.js' file, and 'reducer' to use in our 'store
-export const { update, remove } = userSlice.actions;
+export const { update, remove, addHello } = userSlice.actions;
 export default userSlice.reducer;
 
 // Write the action then export it 
