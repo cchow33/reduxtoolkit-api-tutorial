@@ -5,6 +5,10 @@ import "./navbar.css";
 const Navbar = () => {
   // This will update the name in the navbar to the name in our UserSlice
   const name = useSelector(state => state.user.name) // 'user' is name of store from store.js
+
+  console.log('navbar re-rendered')
+
+
   return (
     <div className="navbar">
       <div className="navbarWrapper">

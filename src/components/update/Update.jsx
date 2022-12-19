@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from 'react-redux'
 import Warning from "../warning/Warning";
 import "./update.css";
-import { update } from '../../redux/userSlice'
+import { update, remove } from '../../redux/userSlice'
 import { useState } from "react";
 // use a hook to dispatch action
 import { useDispatch } from "react-redux";  
@@ -13,28 +13,29 @@ export default function Update() {
   const user = useSelector(state => state.user);
   // dispatch update action using useDispatch hook: 
   const dispatch = useDispatch();
-  
-  // Create handleUpdate function. Now all name will be updated everywhere
+  // console.log(name, email)
+
   const handleUpdate = (e) => {
     e.preventDefault();
     // dispatch 'update' action
     dispatch(update({name, email})) // pass in payload -name, email 
-  }
-
+  };
 
   // OR:
   // user { name: name, email: email,}
   // dispatch(update(user))
 
-
-  // console.log(name, email)
+  const handleDelete = (e) => {
+    e.preventDefault();
+    dispatch(remove()) //no payload to pass in
+  };
 
   return (
     <div className="update">
       <div className="updateWrapper">
         <h3 className="updateTitle">Update Your Account</h3>
         <Warning />
-        <button className="delete">Delete Account</button>
+        <button className="delete" onClick={handleDelete}>Delete Account</button>
         <div className="updateContainer">
           <form>
             <div className="formItem">
