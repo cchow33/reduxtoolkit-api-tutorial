@@ -3,6 +3,7 @@ import React from "react";
 import "./navbar.css";
 
 const Navbar = () => {
+  // This will update the name in the navbar to the name in our UserSlice
   const name = useSelector(state => state.user.name) // 'user' is name of store from store.js
   return (
     <div className="navbar">
@@ -23,8 +24,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbarRight">
-          <span className="navbarName">Carmen</span>
-          {/* <ArrowDropDown /> */}
+          <span className="navbarName">{name}</span>
         </div>
       </div>
     </div>

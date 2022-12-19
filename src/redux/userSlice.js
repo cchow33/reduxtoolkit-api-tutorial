@@ -4,7 +4,7 @@ export const userSlice = createSlice({
   name: 'user',
   // Initial state can be empty
   initialState: {
-    name: 'Carmen',
+    name: 'Lucien',
     email: 'carmen@gmail.com'
   },
 
